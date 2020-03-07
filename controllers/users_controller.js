@@ -4,13 +4,16 @@ const User=require('../models/user');
 // Render the profile page
 module.exports.profile=function(req,res){
     // res.end('<h1>User Profile</h1>');        send direct message to the server
-    return res.render('users_profile',{       // Render views/users_profile file to the server
+    return res.render('user_profile',{       // Render views/users_profile file to the server
         title: "profile"
     });
 }
 
 // Render the Sign-up page
 module.exports.signUp=function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile')
+    }
     return res.render('user_sign_up',{
         title: "codeial | sign up"
     });
@@ -18,6 +21,9 @@ module.exports.signUp=function(req,res){
 
 // Render the sign-in page
 module.exports.signIn=function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile')
+    }
     return res.render('user_sign_in',{
         title: "codeial | sign in"
     });
