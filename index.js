@@ -12,6 +12,16 @@ const MongoStore=require('connect-mongo')(session);
 
 const cookieParser=require('cookie-parser');
 
+// add sass 
+const sassMiddleware=require('node-sass-middleware');
+app.use(sassMiddleware({
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'extended',
+    prefix: '/css'
+}));
+
 // for encode POST request
 app.use(express.urlencoded());
 
