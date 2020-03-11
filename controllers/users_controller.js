@@ -2,10 +2,22 @@
 const User=require('../models/user');
 
 // Render the profile page
+// module.exports.profile=function(req,res){
+//     // res.end('<h1>User Profile</h1>');        send direct message to the server
+//     return res.render('user_profile',{       // Render views/users_profile file to the server
+//         title: "profile"
+//     });
+// }
+
+// Show user profile link on home page
+// Render the profile page
 module.exports.profile=function(req,res){
     // res.end('<h1>User Profile</h1>');        send direct message to the server
-    return res.render('user_profile',{       // Render views/users_profile file to the server
-        title: "profile"
+    User.findById(req.params.id, function(err, user){
+        return res.render('user_profile',{       // Render views/users_profile file to the server
+            title: "profile",
+            profile_user: user
+        });
     });
 }
 
