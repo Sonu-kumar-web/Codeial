@@ -1,5 +1,7 @@
 // import the model
 const User=require('../models/user');
+const fs=require('fs');
+const path=require('path');
 
 // Render the profile page
 // module.exports.profile=function(req,res){
@@ -42,6 +44,11 @@ module.exports.update=async function(req,res){
                 user.name=req.body.name;
                 user.email=req.body.email;
                 if(req.file){
+                    // To replace the profile picture
+                    if(user.avatar){
+                        fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+                    }
+
                     // This is saving the path of the uploaded file into the avatar field in the user
                     user.avatar=User.avatarPath + '/' + req.file.filename;
                 }
