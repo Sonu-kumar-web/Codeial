@@ -40,6 +40,8 @@ app.set('layout extractScripts',true);
 
 // Give access or set path for static files
 app.use(express.static('./assets'));
+// Make the uploads path available to the browser
+app.use('/uploads',express.static(__dirname + '/uploads'));
 
 // Use express router
 // app.use('/',require('./routes'));
