@@ -59,7 +59,7 @@ module.exports.home= async function(req,res){
             populate: {
                 path: 'user'
             }
-        })
+        });
 
         // for show user on home page
         let users=await User.find({});
