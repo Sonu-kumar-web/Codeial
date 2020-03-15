@@ -8,6 +8,9 @@ const session=require('express-session');
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 
+// Add passport-jwt
+const passportJWT=require('./config/passport-jwt-strategy');
+
 const MongoStore=require('connect-mongo')(session);
 
 const cookieParser=require('cookie-parser');
