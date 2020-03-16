@@ -1,5 +1,5 @@
 const passport=require('passport');
-const googleStrategy=require('passport-google-oauth');
+const googleStrategy=require('passport-google-oauth').OAuth2Strategy;
 const crypto=require('crypto');
 const User=require('../models/user');
 
@@ -7,12 +7,12 @@ const User=require('../models/user');
 passport.use(new googleStrategy({
        // link--> https://console.developers.google.com/apis/credentials/oauthclient/11811364338-jd41bglto90ltc1d39ft9t7p27umjv8n.apps.googleusercontent.com?project=codeial-sample-271303
         clientID: "11811364338-jd41bglto90ltc1d39ft9t7p27umjv8n.apps.googleusercontent.com",
-        clientSceret: "Od0mqKHKq3U2I1cgqgPQqPXG",
+        clientSecret: "zo2TpR9OKhTprCAyX99Swso-",
         callbackURL: "http://localhost:8000/users/auth/google/callback"
     },
     function(accessToken, refreshToken, profile, done){
         // Find a user
-        User.findOne({email: profile.email[0].value}).exec(function(err, user){
+        User.findOne({email: profile.emails[0].value}).exec(function(err, user){
             if(err){
                 console.log('Error in google strategy-passport', err);
                 return;
