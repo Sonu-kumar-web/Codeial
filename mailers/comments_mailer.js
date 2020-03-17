@@ -5,10 +5,10 @@ exports.newComment=(comment) =>{
     // console.log('inside newComment mailer',comment);
 
     // to Send template in mail
-    let htmlString=nodeMailer.renderTemplate({comment: comment}, '/comments/new_comment.js');
+    let htmlString=nodeMailer.renderTemplate({comment: comment}, '/comments/new_comment.ejs');
 
     nodeMailer.transporter.sendMail({
-        from: 'sonu3660@gmail.com',
+        from: 'sonu2nd36600@gmail.com',
         to: comment.user.email,
         subject: "New comment published!",
         // html: '<h1>Yup, your comment is now published <h1>'
