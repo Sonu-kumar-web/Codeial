@@ -13,4 +13,5 @@ router.use('/api',require('./api'));    // Set api path from router
 // router.use('/routerName', require('./routerfile));
 
 
-module.exports=router;
+module.exports=router; 
+

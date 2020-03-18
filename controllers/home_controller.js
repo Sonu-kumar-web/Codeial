@@ -58,8 +58,12 @@ module.exports.home= async function(req,res){
             path: 'comments',
             populate: {
                 path: 'user'
+            },
+            //  populate the likes of each post and comment
+            populate: {
+                path: 'likes'
             }
-        });
+        }).populate('likes');
 
         // for show user on home page
         let users=await User.find({});
@@ -75,3 +79,5 @@ module.exports.home= async function(req,res){
         
     }
 }
+
+
