@@ -22,7 +22,7 @@ const customMware=require('./config/middleware');
 
 // Set up the chat server to be used with socket.io
 const chatServer=require('http').Server(app);
-const chatSocket=require('./config/chat_socket').chatSocket(chatServer);
+const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listening on the port 5000');
 
