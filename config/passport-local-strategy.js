@@ -11,12 +11,10 @@ passport.use(new LocalStrategy({
         // Find a user and established the identity
         User.findOne({email : email}, function(err, user){
             if(err){
-                // console.log('Error in finding user -->  Passport');
                 req.flash('error',err); // For flash messages
                 return done(err);
             }
             if(!user || user.password != password){
-                // console.log('Invalid username/password');
                 req.flash('error','Invalid Username/Password');
                 return done(null,false);
             }
