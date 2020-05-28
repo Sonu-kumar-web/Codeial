@@ -8,8 +8,8 @@ let transporter=nodemailer.createTransport({
     post: 587,
     source: false,
     auth: {
-        user: 'sonu2nd36600@gmail.com',  // this email and password must be correct
-        pass: '9838389368'
+        user: 'sonu@gmail.com',  // this email and password must be correct
+        pass: 'XYZ'
     }
 });
 
